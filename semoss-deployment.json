@@ -1,0 +1,55 @@
+{
+  "kind": "Deployment",
+  "apiVersion": "apps/v1",
+  "metadata": {
+    "name": "semoss",
+    "annotations": {
+      "description": "Defines how to deploy the application server"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels" : {
+        "name": "semoss"
+      },
+    },
+    "template": {
+      "metadata": {
+        "name": "semoss",
+        "labels": {
+          "name": "semoss"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "semoss",
+            "image": "semoss/docker:latest",
+            "ports": [
+              {
+                "containerPort": 8080
+              }
+            ],
+            "readinessProbe": {
+              "timeoutSeconds": 5,
+              "initialDelaySeconds": 60,
+              "httpGet": {
+                "path": "/Monolith/api/config",
+                "port": 8080
+              }
+            },
+            "livenessProbe": {
+              "timeoutSeconds": 5,
+              "initialDelaySeconds": 60,
+              "httpGet": {
+                "path": "/Monolith/api/config",
+                "port": 8080
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

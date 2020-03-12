@@ -1,0 +1,490 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/deployment-config.latest-version": "1",
+                    "openshift.io/deployment-config.name": "docker",
+                    "openshift.io/deployment.name": "docker-1",
+                    "openshift.io/generated-by": "OpenShiftWebConsole",
+                    "openshift.io/scc": "restricted"
+                },
+                "creationTimestamp": "2020-01-15T19:06:51Z",
+                "generateName": "docker-1-",
+                "labels": {
+                    "app": "docker",
+                    "deployment": "docker-1",
+                    "deploymentconfig": "docker"
+                },
+                "name": "docker-1-km6xm",
+                "namespace": "semoss",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicationController",
+                        "name": "docker-1",
+                        "uid": "23ba0889-37c2-11ea-9c65-027d628eb881"
+                    }
+                ],
+                "resourceVersion": "17939",
+                "selfLink": "/api/v1/namespaces/semoss/pods/docker-1-km6xm",
+                "uid": "2fdef376-37ca-11ea-9c65-027d628eb881"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "semoss/docker@sha256:ef305cad907cabe53c08f5bb35a30532aafd5e31a6658261bbc7215aca2e9778",
+                        "imagePullPolicy": "Always",
+                        "name": "docker",
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "drop": [
+                                    "KILL",
+                                    "MKNOD",
+                                    "SETGID",
+                                    "SETUID"
+                                ]
+                            },
+                            "runAsUser": 1000080000
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-4pt5d",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "imagePullSecrets": [
+                    {
+                        "name": "default-dockercfg-vmpd9"
+                    }
+                ],
+                "nodeName": "ip-172-31-6-62.ec2.internal",
+                "nodeSelector": {
+                    "node-role.kubernetes.io/compute": "true"
+                },
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {
+                    "fsGroup": 1000080000,
+                    "seLinuxOptions": {
+                        "level": "s0:c9,c4"
+                    }
+                },
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-4pt5d",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-4pt5d"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-01-15T19:06:51Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-01-15T19:08:54Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": null,
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-01-15T19:06:51Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://bba6a0e441abe65d0bff8b1b690096011c61f0a09abb091196fd6a35c3b5f201",
+                        "image": "docker.io/semoss/docker@sha256:ef305cad907cabe53c08f5bb35a30532aafd5e31a6658261bbc7215aca2e9778",
+                        "imageID": "docker-pullable://docker.io/semoss/docker@sha256:ef305cad907cabe53c08f5bb35a30532aafd5e31a6658261bbc7215aca2e9778",
+                        "lastState": {},
+                        "name": "docker",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2020-01-15T19:08:54Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.31.6.62",
+                "phase": "Running",
+                "podIP": "10.131.0.3",
+                "qosClass": "BestEffort",
+                "startTime": "2020-01-15T19:06:51Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "ReplicationController",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/deployer-pod.completed-at": "2020-01-15 19:08:54 +0000 UTC",
+                    "openshift.io/deployer-pod.created-at": "2020-01-15 18:09:15 +0000 UTC",
+                    "openshift.io/deployer-pod.name": "docker-1-deploy",
+                    "openshift.io/deployment-config.latest-version": "1",
+                    "openshift.io/deployment-config.name": "docker",
+                    "openshift.io/deployment.phase": "Complete",
+                    "openshift.io/deployment.replicas": "1",
+                    "openshift.io/deployment.status-reason": "config change",
+                    "openshift.io/encoded-deployment-config": "{\"kind\":\"DeploymentConfig\",\"apiVersion\":\"apps.openshift.io/v1\",\"metadata\":{\"name\":\"docker\",\"namespace\":\"semoss\",\"selfLink\":\"/apis/apps.openshift.io/v1/namespaces/semoss/deploymentconfigs/docker\",\"uid\":\"2394839a-37c2-11ea-9c65-027d628eb881\",\"resourceVersion\":\"9392\",\"generation\":2,\"creationTimestamp\":\"2020-01-15T18:09:14Z\",\"labels\":{\"app\":\"docker\"},\"annotations\":{\"openshift.io/generated-by\":\"OpenShiftWebConsole\"}},\"spec\":{\"strategy\":{\"type\":\"Rolling\",\"rollingParams\":{\"updatePeriodSeconds\":1,\"intervalSeconds\":1,\"timeoutSeconds\":600,\"maxUnavailable\":\"25%\",\"maxSurge\":\"25%\"},\"resources\":{},\"activeDeadlineSeconds\":21600},\"triggers\":[{\"type\":\"ConfigChange\"},{\"type\":\"ImageChange\",\"imageChangeParams\":{\"automatic\":true,\"containerNames\":[\"docker\"],\"from\":{\"kind\":\"ImageStreamTag\",\"namespace\":\"semoss\",\"name\":\"docker:latest\"},\"lastTriggeredImage\":\"semoss/docker@sha256:ef305cad907cabe53c08f5bb35a30532aafd5e31a6658261bbc7215aca2e9778\"}}],\"replicas\":1,\"test\":false,\"selector\":{\"app\":\"docker\",\"deploymentconfig\":\"docker\"},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"app\":\"docker\",\"deploymentconfig\":\"docker\"},\"annotations\":{\"openshift.io/generated-by\":\"OpenShiftWebConsole\"}},\"spec\":{\"containers\":[{\"name\":\"docker\",\"image\":\"semoss/docker@sha256:ef305cad907cabe53c08f5bb35a30532aafd5e31a6658261bbc7215aca2e9778\",\"resources\":{},\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"imagePullPolicy\":\"Always\"}],\"restartPolicy\":\"Always\",\"terminationGracePeriodSeconds\":30,\"dnsPolicy\":\"ClusterFirst\",\"securityContext\":{},\"schedulerName\":\"default-scheduler\"}}},\"status\":{\"latestVersion\":1,\"observedGeneration\":1,\"replicas\":0,\"updatedReplicas\":0,\"availableReplicas\":0,\"unavailableReplicas\":0,\"details\":{\"message\":\"config change\",\"causes\":[{\"type\":\"ConfigChange\"}]},\"conditions\":[{\"type\":\"Available\",\"status\":\"False\",\"lastUpdateTime\":\"2020-01-15T18:09:14Z\",\"lastTransitionTime\":\"2020-01-15T18:09:14Z\",\"message\":\"Deployment config does not have minimum availability.\"}]}}\n"
+                },
+                "creationTimestamp": "2020-01-15T18:09:15Z",
+                "generation": 2,
+                "labels": {
+                    "app": "docker",
+                    "openshift.io/deployment-config.name": "docker"
+                },
+                "name": "docker-1",
+                "namespace": "semoss",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps.openshift.io/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "DeploymentConfig",
+                        "name": "docker",
+                        "uid": "2394839a-37c2-11ea-9c65-027d628eb881"
+                    }
+                ],
+                "resourceVersion": "17943",
+                "selfLink": "/api/v1/namespaces/semoss/replicationcontrollers/docker-1",
+                "uid": "23ba0889-37c2-11ea-9c65-027d628eb881"
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "app": "docker",
+                    "deployment": "docker-1",
+                    "deploymentconfig": "docker"
+                },
+                "template": {
+                    "metadata": {
+                        "annotations": {
+                            "openshift.io/deployment-config.latest-version": "1",
+                            "openshift.io/deployment-config.name": "docker",
+                            "openshift.io/deployment.name": "docker-1",
+                            "openshift.io/generated-by": "OpenShiftWebConsole"
+                        },
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "docker",
+                            "deployment": "docker-1",
+                            "deploymentconfig": "docker"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "semoss/docker@sha256:ef305cad907cabe53c08f5bb35a30532aafd5e31a6658261bbc7215aca2e9778",
+                                "imagePullPolicy": "Always",
+                                "name": "docker",
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "fullyLabeledReplicas": 1,
+                "observedGeneration": 2,
+                "readyReplicas": 1,
+                "replicas": 1
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-01-15T19:21:37Z",
+                "name": "semossnodeport",
+                "namespace": "semoss",
+                "resourceVersion": "19943",
+                "selfLink": "/api/v1/namespaces/semoss/services/semossnodeport",
+                "uid": "40024ac3-37cc-11ea-9c65-027d628eb881"
+            },
+            "spec": {
+                "clusterIP": "172.30.126.137",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "nodePort": 30100,
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "docker"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "apps.openshift.io/v1",
+            "kind": "DeploymentConfig",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftWebConsole"
+                },
+                "creationTimestamp": "2020-01-15T18:09:14Z",
+                "generation": 2,
+                "labels": {
+                    "app": "docker"
+                },
+                "name": "docker",
+                "namespace": "semoss",
+                "resourceVersion": "17945",
+                "selfLink": "/apis/apps.openshift.io/v1/namespaces/semoss/deploymentconfigs/docker",
+                "uid": "2394839a-37c2-11ea-9c65-027d628eb881"
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "app": "docker",
+                    "deploymentconfig": "docker"
+                },
+                "strategy": {
+                    "activeDeadlineSeconds": 21600,
+                    "resources": {},
+                    "rollingParams": {
+                        "intervalSeconds": 1,
+                        "maxSurge": "25%",
+                        "maxUnavailable": "25%",
+                        "timeoutSeconds": 600,
+                        "updatePeriodSeconds": 1
+                    },
+                    "type": "Rolling"
+                },
+                "template": {
+                    "metadata": {
+                        "annotations": {
+                            "openshift.io/generated-by": "OpenShiftWebConsole"
+                        },
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "docker",
+                            "deploymentconfig": "docker"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "semoss/docker@sha256:ef305cad907cabe53c08f5bb35a30532aafd5e31a6658261bbc7215aca2e9778",
+                                "imagePullPolicy": "Always",
+                                "name": "docker",
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                },
+                "test": false,
+                "triggers": [
+                    {
+                        "type": "ConfigChange"
+                    },
+                    {
+                        "imageChangeParams": {
+                            "automatic": true,
+                            "containerNames": [
+                                "docker"
+                            ],
+                            "from": {
+                                "kind": "ImageStreamTag",
+                                "name": "docker:latest",
+                                "namespace": "semoss"
+                            },
+                            "lastTriggeredImage": "semoss/docker@sha256:ef305cad907cabe53c08f5bb35a30532aafd5e31a6658261bbc7215aca2e9778"
+                        },
+                        "type": "ImageChange"
+                    }
+                ]
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2020-01-15T19:08:54Z",
+                        "lastUpdateTime": "2020-01-15T19:08:54Z",
+                        "message": "Deployment config has minimum availability.",
+                        "status": "True",
+                        "type": "Available"
+                    },
+                    {
+                        "lastTransitionTime": "2020-01-15T19:08:55Z",
+                        "lastUpdateTime": "2020-01-15T19:08:55Z",
+                        "message": "replication controller \"docker-1\" successfully rolled out",
+                        "reason": "NewReplicationControllerAvailable",
+                        "status": "True",
+                        "type": "Progressing"
+                    }
+                ],
+                "details": {
+                    "causes": [
+                        {
+                            "type": "ConfigChange"
+                        }
+                    ],
+                    "message": "config change"
+                },
+                "latestVersion": 1,
+                "observedGeneration": 2,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "unavailableReplicas": 0,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "image.openshift.io/v1",
+            "kind": "ImageStream",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/image.dockerRepositoryCheck": "2020-01-15T18:09:15Z"
+                },
+                "creationTimestamp": "2020-01-15T18:09:14Z",
+                "generation": 2,
+                "labels": {
+                    "app": "docker"
+                },
+                "name": "docker",
+                "namespace": "semoss",
+                "resourceVersion": "9390",
+                "selfLink": "/apis/image.openshift.io/v1/namespaces/semoss/imagestreams/docker",
+                "uid": "2393feb2-37c2-11ea-9c65-027d628eb881"
+            },
+            "spec": {
+                "lookupPolicy": {
+                    "local": false
+                },
+                "tags": [
+                    {
+                        "annotations": {
+                            "openshift.io/generated-by": "OpenShiftWebConsole",
+                            "openshift.io/imported-from": "semoss/docker"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "semoss/docker"
+                        },
+                        "generation": 2,
+                        "importPolicy": {},
+                        "name": "latest",
+                        "referencePolicy": {
+                            "type": "Source"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "dockerImageRepository": "docker-registry.default.svc:5000/semoss/docker",
+                "tags": [
+                    {
+                        "items": [
+                            {
+                                "created": "2020-01-15T18:09:15Z",
+                                "dockerImageReference": "semoss/docker@sha256:ef305cad907cabe53c08f5bb35a30532aafd5e31a6658261bbc7215aca2e9778",
+                                "generation": 2,
+                                "image": "sha256:ef305cad907cabe53c08f5bb35a30532aafd5e31a6658261bbc7215aca2e9778"
+                            }
+                        ],
+                        "tag": "latest"
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "route.openshift.io/v1",
+            "kind": "Route",
+            "metadata": {
+                "creationTimestamp": "2020-01-15T19:24:42Z",
+                "name": "semossnodeport",
+                "namespace": "semoss",
+                "resourceVersion": "20384",
+                "selfLink": "/apis/route.openshift.io/v1/namespaces/semoss/routes/semossnodeport",
+                "uid": "ae7c840a-37cc-11ea-9c65-027d628eb881"
+            },
+            "spec": {
+                "host": "ec2-3-231-146-194.compute-1.amazonaws.com",
+                "to": {
+                    "kind": "Service",
+                    "name": "semossnodeport",
+                    "weight": 100
+                },
+                "wildcardPolicy": "None"
+            },
+            "status": {
+                "ingress": [
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2020-01-15T19:24:42Z",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "ec2-3-231-146-194.compute-1.amazonaws.com",
+                        "routerName": "router",
+                        "wildcardPolicy": "None"
+                    }
+                ]
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
